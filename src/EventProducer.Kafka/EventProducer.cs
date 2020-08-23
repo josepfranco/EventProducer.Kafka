@@ -128,5 +128,30 @@ namespace EventProducer.Kafka
             };
         }
         #endregion
+        
+        #region DISPOSE PATTERN
+        private bool _disposed;
+        
+        /**
+         * Consumer dispose method
+         */
+        public void Dispose()
+        {
+            Dispose(true);
+        }
+        
+        /**
+         * How we dispose an object
+         */
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed) return;
+            if (disposing)
+            {
+                // to be implemented if needed
+            }
+            _disposed = true;
+        }
+        #endregion
     }
 }
