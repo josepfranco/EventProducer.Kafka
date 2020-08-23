@@ -128,7 +128,7 @@ namespace EventProducer.Kafka
             };
         }
         #endregion
-        
+
         #region DISPOSE PATTERN
         private bool _disposed;
         
