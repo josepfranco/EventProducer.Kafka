@@ -11,11 +11,11 @@ using Microsoft.Extensions.Options;
 
 namespace EventProducer.Kafka
 {
-    public class EventProducer : IProducer, IProducerAsync
+    public class Producer : IProducer, IProducerAsync
     {
         private ProducerConfig _producerConfig;
         
-        public EventProducer(IOptions<KafkaProducerConfiguration> kafkaConfigOptions)
+        public Producer(IOptions<KafkaProducerConfiguration> kafkaConfigOptions)
         {
             if (kafkaConfigOptions == null) 
                 throw new ArgumentNullException(
