@@ -11,8 +11,8 @@ namespace EventProducer.Kafka.Extensions
                                                           IConfiguration configuration)
         {
             services.Configure<KafkaProducerConfiguration>(configuration.GetSection(nameof(KafkaProducerConfiguration)));
-            services.AddSingleton(ServiceDescriptor.Singleton<IProducer, EventProducer>());
-            services.AddSingleton(ServiceDescriptor.Singleton<IProducerAsync, EventProducer>());
+            services.AddSingleton(ServiceDescriptor.Singleton<IProducer, Producer>());
+            services.AddSingleton(ServiceDescriptor.Singleton<IProducerAsync, Producer>());
             return services;
         }
     }
