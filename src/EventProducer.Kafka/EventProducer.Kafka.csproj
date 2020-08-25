@@ -6,7 +6,7 @@
         <!-- NUGET METADATA -->
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <VersionSuffix>alpha</VersionSuffix>
-        <PackageVersion>1.0.1</PackageVersion>
+        <PackageVersion>1.0.2</PackageVersion>
         <Authors>José Franco</Authors>
         <RepositoryUrl>https://github.com/josepfranco/EventProducer.Kafka</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
