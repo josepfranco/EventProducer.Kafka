@@ -13,7 +13,7 @@ namespace EventProducer.Kafka
 {
     public class Producer : IProducer, IProducerAsync
     {
-        private ProducerConfig _producerConfig;
+        private ProducerConfig? _producerConfig;
         
         public Producer(IOptions<KafkaProducerConfiguration> kafkaConfigOptions)
         {
