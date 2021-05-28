@@ -1,4 +1,5 @@
 using Abstractions.EventProducer;
+using Abstractions.Events;
 using EventProducer.Kafka.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,8 +12,10 @@ namespace EventProducer.Kafka.Extensions
                                                           IConfiguration configuration)
         {
             services.Configure<KafkaProducerConfiguration>(configuration.GetSection(nameof(KafkaProducerConfiguration)));
-            services.AddSingleton(ServiceDescriptor.Singleton<IProducer, Producer>());
-            services.AddSingleton(ServiceDescriptor.Singleton<IProducerAsync, Producer>());
+            services.AddTransient<Producer>();
+            services.AddTransient<IProducer, Producer>(sp => sp.GetRequiredService<Producer>());
+            services.AddTransient<IProducerAsync, Producer>(sp => sp.GetRequiredService<Producer>());
+            services.AddTransient<IEventFactory, EventFactory>();
             return services;
         }
     }
