@@ -8,6 +8,7 @@ using Abstractions.Events.Models;
 using Confluent.Kafka;
 using EventProducer.Kafka.Configuration;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 
 namespace EventProducer.Kafka
 {
@@ -29,11 +30,14 @@ namespace EventProducer.Kafka
         /// <inheritdoc cref="IProducer.Produce"/>
         public void Produce(Event @event)
         {
-            using var producerBuilder = new ProducerBuilder<string, Event>(_producerConfig).Build();
-            var message = new Message<string, Event>
+            using var producerBuilder = new ProducerBuilder<string, string>(_producerConfig)
+               .SetKeySerializer(Serializers.Utf8)
+               .SetValueSerializer(Serializers.Utf8)
+               .Build();
+            var message = new Message<string, string>
             {
                 Key = @event.AggregateName,
-                Value = @event
+                Value = JsonConvert.SerializeObject(@event)
             };
             
             producerBuilder.Produce(@event.AggregateName, message, report =>
