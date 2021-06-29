@@ -34,9 +34,9 @@ namespace EventProducer.Kafka
         {
             using var schemaRegistry = new CachedSchemaRegistryClient(_schemaRegistryConfig);
             using var producerBuilder = new ProducerBuilder<string, Event>(_producerConfig)
-               .SetKeySerializer(Serializers.Utf8)
+               .SetKeySerializer(new AvroSerializer<string>(schemaRegistry))
                .SetValueSerializer(new AvroSerializer<Event>(schemaRegistry))
-               .SetErrorHandler((_, e) => _logger.LogError("Serialization failed error: {Reason}", e.Reason))
+               .SetErrorHandler((_, error) => _logger.LogError("Kafka encountered an error: {@Error}", error))
                .Build();
             var message = new Message<string, Event>
             {
@@ -61,9 +61,9 @@ namespace EventProducer.Kafka
         {
             using var schemaRegistry = new CachedSchemaRegistryClient(_schemaRegistryConfig);
             using var producerBuilder = new ProducerBuilder<string, Event>(_producerConfig)
-               .SetKeySerializer(Serializers.Utf8)
+               .SetKeySerializer(new AvroSerializer<string>(schemaRegistry))
                .SetValueSerializer(new AvroSerializer<Event>(schemaRegistry))
-               .SetErrorHandler((_, e) => _logger.LogError("Serialization failed error: {Reason}", e.Reason))
+               .SetErrorHandler((_, error) => _logger.LogError("Kafka encountered an error: {@Error}", error))
                .Build();
             var message = new Message<string, Event>
             {
@@ -86,9 +86,9 @@ namespace EventProducer.Kafka
         {
             using var schemaRegistry = new CachedSchemaRegistryClient(_schemaRegistryConfig);
             using var producerBuilder = new ProducerBuilder<string, Event>(_producerConfig)
-               .SetKeySerializer(Serializers.Utf8)
+               .SetKeySerializer(new AvroSerializer<string>(schemaRegistry))
                .SetValueSerializer(new AvroSerializer<Event>(schemaRegistry))
-               .SetErrorHandler((_, e) => _logger.LogError("Serialization failed error: {Reason}", e.Reason))
+               .SetErrorHandler((_, error) => _logger.LogError("Kafka encountered an error: {@Error}", error))
                .Build();
             foreach (var @event in events)
             {
@@ -115,9 +115,9 @@ namespace EventProducer.Kafka
         {
             using var schemaRegistry = new CachedSchemaRegistryClient(_schemaRegistryConfig);
             using var producerBuilder = new ProducerBuilder<string, Event>(_producerConfig)
-               .SetKeySerializer(Serializers.Utf8)
+               .SetKeySerializer(new AvroSerializer<string>(schemaRegistry))
                .SetValueSerializer(new AvroSerializer<Event>(schemaRegistry))
-               .SetErrorHandler((_, e) => _logger.LogError("Serialization failed error: {Reason}", e.Reason))
+               .SetErrorHandler((_, error) => _logger.LogError("Kafka encountered an error: {@Error}", error))
                .Build();
             foreach (var @event in events)
             {
