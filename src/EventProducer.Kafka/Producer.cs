@@ -6,23 +6,25 @@ using Abstractions.EventProducer;
 using Abstractions.EventProducer.Exceptions;
 using Abstractions.Events.Models;
 using Confluent.Kafka;
+using Confluent.SchemaRegistry;
+using Confluent.SchemaRegistry.Serdes;
 using EventProducer.Kafka.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
 namespace EventProducer.Kafka
 {
-    public class Producer : IProducer, IProducerAsync
+    public sealed class Producer : IProducer, IProducerAsync
     {
-        private ProducerConfig? _producerConfig;
+        private readonly ILogger<Producer> _logger;
         
-        public Producer(IOptions<KafkaProducerConfiguration> kafkaConfigOptions)
+        private ProducerConfig? _producerConfig;
+        private SchemaRegistryConfig? _schemaRegistryConfig;
+        
+        public Producer(ILogger<Producer> logger, IOptions<KafkaProducerConfiguration> kafkaConfigOptions)
         {
-            if (kafkaConfigOptions == null) 
-                throw new ArgumentNullException(
-                    nameof(KafkaProducerConfiguration), 
-                    $"{nameof(KafkaProducerConfiguration)} options object not correctly setup.");
-            
+            _logger = logger;
             var kafkaConfiguration = kafkaConfigOptions.Value;
             InitializeKafka(kafkaConfiguration);
         }
@@ -30,14 +32,16 @@ namespace EventProducer.Kafka
         /// <inheritdoc cref="IProducer.Produce"/>
         public void Produce(Event @event)
         {
-            using var producerBuilder = new ProducerBuilder<string, string>(_producerConfig)
+            using var schemaRegistry = new CachedSchemaRegistryClient(_schemaRegistryConfig);
+            using var producerBuilder = new ProducerBuilder<string, Event>(_producerConfig)
                .SetKeySerializer(Serializers.Utf8)
-               .SetValueSerializer(Serializers.Utf8)
+               .SetValueSerializer(new AvroSerializer<Event>(schemaRegistry))
+               .SetErrorHandler((_, e) => _logger.LogError("Serialization failed error: {Reason}", e.Reason))
                .Build();
-            var message = new Message<string, string>
+            var message = new Message<string, Event>
             {
                 Key = @event.AggregateName,
-                Value = JsonConvert.SerializeObject(@event)
+                Value = @event
             };
             
             producerBuilder.Produce(@event.AggregateName, message, report =>
@@ -55,7 +59,12 @@ namespace EventProducer.Kafka
         /// <inheritdoc cref="IProducerAsync.ProduceAsync"/>
         public Task ProduceAsync(Event @event, CancellationToken token = default)
         {
-            using var producerBuilder = new ProducerBuilder<string, Event>(_producerConfig).Build();
+            using var schemaRegistry = new CachedSchemaRegistryClient(_schemaRegistryConfig);
+            using var producerBuilder = new ProducerBuilder<string, Event>(_producerConfig)
+               .SetKeySerializer(Serializers.Utf8)
+               .SetValueSerializer(new AvroSerializer<Event>(schemaRegistry))
+               .SetErrorHandler((_, e) => _logger.LogError("Serialization failed error: {Reason}", e.Reason))
+               .Build();
             var message = new Message<string, Event>
             {
                 Key = @event.AggregateName,
@@ -75,7 +84,12 @@ namespace EventProducer.Kafka
         /// <inheritdoc cref="IProducer.ProduceMany"/>
         public void ProduceMany(IList<Event> events)
         {
-            using var producerBuilder = new ProducerBuilder<string, Event>(_producerConfig).Build();
+            using var schemaRegistry = new CachedSchemaRegistryClient(_schemaRegistryConfig);
+            using var producerBuilder = new ProducerBuilder<string, Event>(_producerConfig)
+               .SetKeySerializer(Serializers.Utf8)
+               .SetValueSerializer(new AvroSerializer<Event>(schemaRegistry))
+               .SetErrorHandler((_, e) => _logger.LogError("Serialization failed error: {Reason}", e.Reason))
+               .Build();
             foreach (var @event in events)
             {
                 var message = new Message<string, Event>
@@ -99,7 +113,12 @@ namespace EventProducer.Kafka
         /// <inheritdoc cref="IProducerAsync.ProduceManyAsync"/>
         public async Task ProduceManyAsync(IList<Event> events, CancellationToken token = default)
         {
-            using var producerBuilder = new ProducerBuilder<string, Event>(_producerConfig).Build();
+            using var schemaRegistry = new CachedSchemaRegistryClient(_schemaRegistryConfig);
+            using var producerBuilder = new ProducerBuilder<string, Event>(_producerConfig)
+               .SetKeySerializer(Serializers.Utf8)
+               .SetValueSerializer(new AvroSerializer<Event>(schemaRegistry))
+               .SetErrorHandler((_, e) => _logger.LogError("Serialization failed error: {Reason}", e.Reason))
+               .Build();
             foreach (var @event in events)
             {
                 var message = new Message<string, Event>
@@ -125,10 +144,16 @@ namespace EventProducer.Kafka
             _producerConfig = new ProducerConfig
             {
                 BootstrapServers = string.IsNullOrEmpty(kafkaConfiguration.BootstrapServerUrls)
-                    ? throw new ArgumentException(
-                        $"{nameof(KafkaProducerConfiguration)} bootstrap server urls cannot be null or empty.",
-                        nameof(KafkaProducerConfiguration))
-                    : kafkaConfiguration.BootstrapServerUrls
+                    ? throw new InvalidOperationException(
+                        $"{nameof(KafkaProducerConfiguration)} bootstrap server urls cannot be null or empty.")
+                    : kafkaConfiguration.BootstrapServerUrls,
+            };
+            _schemaRegistryConfig = new SchemaRegistryConfig
+            {
+                Url = string.IsNullOrEmpty(kafkaConfiguration.AvroSchemaRegistryUrls)
+                    ? throw new InvalidOperationException(
+                        $"{nameof(KafkaProducerConfiguration)} schema registry urls cannot be null or empty.")
+                    : kafkaConfiguration.AvroSchemaRegistryUrls
             };
         }
         #endregion
@@ -147,7 +172,7 @@ namespace EventProducer.Kafka
         /**
          * How we dispose an object
          */
-        protected virtual void Dispose(bool disposing)
+        private void Dispose(bool disposing)
         {
             if (_disposed) return;
             if (disposing)

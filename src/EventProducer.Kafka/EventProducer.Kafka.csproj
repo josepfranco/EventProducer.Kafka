@@ -16,9 +16,11 @@
 
     <ItemGroup>
       <PackageReference Include="Abstractions.EventProducer" Version="2.0.0-ci-6" />
-      <PackageReference Include="Confluent.Kafka" Version="1.5.3" />
+      <PackageReference Include="Confluent.Kafka" Version="1.7.0" />
+      <PackageReference Include="Confluent.SchemaRegistry.Serdes.Avro" Version="1.7.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
       <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
       <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="5.0.0" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
