@@ -4,14 +4,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using Abstractions.EventProducer;
 using Abstractions.EventProducer.Exceptions;
-using Abstractions.Events.Models;
+using Abstractions.Events;
 using Confluent.Kafka;
 using Confluent.SchemaRegistry;
 using Confluent.SchemaRegistry.Serdes;
 using EventProducer.Kafka.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 
 namespace EventProducer.Kafka
 {
