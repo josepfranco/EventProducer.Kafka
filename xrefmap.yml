@@ -1,0 +1,203 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: EventProducer.Kafka
+  name: EventProducer.Kafka
+  href: api/EventProducer.Kafka.html
+  commentId: N:EventProducer.Kafka
+  fullName: EventProducer.Kafka
+  nameWithType: EventProducer.Kafka
+- uid: EventProducer.Kafka.Configuration
+  name: EventProducer.Kafka.Configuration
+  href: api/EventProducer.Kafka.Configuration.html
+  commentId: N:EventProducer.Kafka.Configuration
+  fullName: EventProducer.Kafka.Configuration
+  nameWithType: EventProducer.Kafka.Configuration
+- uid: EventProducer.Kafka.Configuration.KafkaProducerConfiguration
+  name: KafkaProducerConfiguration
+  href: api/EventProducer.Kafka.Configuration.KafkaProducerConfiguration.html
+  commentId: T:EventProducer.Kafka.Configuration.KafkaProducerConfiguration
+  fullName: EventProducer.Kafka.Configuration.KafkaProducerConfiguration
+  nameWithType: KafkaProducerConfiguration
+- uid: EventProducer.Kafka.Configuration.KafkaProducerConfiguration.AvroSchemaRegistryUrls
+  name: AvroSchemaRegistryUrls
+  href: api/EventProducer.Kafka.Configuration.KafkaProducerConfiguration.html#EventProducer_Kafka_Configuration_KafkaProducerConfiguration_AvroSchemaRegistryUrls
+  commentId: P:EventProducer.Kafka.Configuration.KafkaProducerConfiguration.AvroSchemaRegistryUrls
+  fullName: EventProducer.Kafka.Configuration.KafkaProducerConfiguration.AvroSchemaRegistryUrls
+  nameWithType: KafkaProducerConfiguration.AvroSchemaRegistryUrls
+- uid: EventProducer.Kafka.Configuration.KafkaProducerConfiguration.AvroSchemaRegistryUrls*
+  name: AvroSchemaRegistryUrls
+  href: api/EventProducer.Kafka.Configuration.KafkaProducerConfiguration.html#EventProducer_Kafka_Configuration_KafkaProducerConfiguration_AvroSchemaRegistryUrls_
+  commentId: Overload:EventProducer.Kafka.Configuration.KafkaProducerConfiguration.AvroSchemaRegistryUrls
+  isSpec: "True"
+  fullName: EventProducer.Kafka.Configuration.KafkaProducerConfiguration.AvroSchemaRegistryUrls
+  nameWithType: KafkaProducerConfiguration.AvroSchemaRegistryUrls
+- uid: EventProducer.Kafka.Configuration.KafkaProducerConfiguration.BootstrapServerUrls
+  name: BootstrapServerUrls
+  href: api/EventProducer.Kafka.Configuration.KafkaProducerConfiguration.html#EventProducer_Kafka_Configuration_KafkaProducerConfiguration_BootstrapServerUrls
+  commentId: P:EventProducer.Kafka.Configuration.KafkaProducerConfiguration.BootstrapServerUrls
+  fullName: EventProducer.Kafka.Configuration.KafkaProducerConfiguration.BootstrapServerUrls
+  nameWithType: KafkaProducerConfiguration.BootstrapServerUrls
+- uid: EventProducer.Kafka.Configuration.KafkaProducerConfiguration.BootstrapServerUrls*
+  name: BootstrapServerUrls
+  href: api/EventProducer.Kafka.Configuration.KafkaProducerConfiguration.html#EventProducer_Kafka_Configuration_KafkaProducerConfiguration_BootstrapServerUrls_
+  commentId: Overload:EventProducer.Kafka.Configuration.KafkaProducerConfiguration.BootstrapServerUrls
+  isSpec: "True"
+  fullName: EventProducer.Kafka.Configuration.KafkaProducerConfiguration.BootstrapServerUrls
+  nameWithType: KafkaProducerConfiguration.BootstrapServerUrls
+- uid: EventProducer.Kafka.EventFactory
+  name: EventFactory
+  href: api/EventProducer.Kafka.EventFactory.html
+  commentId: T:EventProducer.Kafka.EventFactory
+  fullName: EventProducer.Kafka.EventFactory
+  nameWithType: EventFactory
+- uid: EventProducer.Kafka.EventFactory.#ctor(IOptions{EventProducer.Kafka.Configuration.KafkaProducerConfiguration})
+  name: EventFactory(IOptions<KafkaProducerConfiguration>)
+  href: api/EventProducer.Kafka.EventFactory.html#EventProducer_Kafka_EventFactory__ctor_IOptions_EventProducer_Kafka_Configuration_KafkaProducerConfiguration__
+  commentId: M:EventProducer.Kafka.EventFactory.#ctor(IOptions{EventProducer.Kafka.Configuration.KafkaProducerConfiguration})
+  name.vb: EventFactory(IOptions(Of KafkaProducerConfiguration))
+  fullName: EventProducer.Kafka.EventFactory.EventFactory(IOptions<EventProducer.Kafka.Configuration.KafkaProducerConfiguration>)
+  fullName.vb: EventProducer.Kafka.EventFactory.EventFactory(IOptions(Of EventProducer.Kafka.Configuration.KafkaProducerConfiguration))
+  nameWithType: EventFactory.EventFactory(IOptions<KafkaProducerConfiguration>)
+  nameWithType.vb: EventFactory.EventFactory(IOptions(Of KafkaProducerConfiguration))
+- uid: EventProducer.Kafka.EventFactory.#ctor*
+  name: EventFactory
+  href: api/EventProducer.Kafka.EventFactory.html#EventProducer_Kafka_EventFactory__ctor_
+  commentId: Overload:EventProducer.Kafka.EventFactory.#ctor
+  isSpec: "True"
+  fullName: EventProducer.Kafka.EventFactory.EventFactory
+  nameWithType: EventFactory.EventFactory
+- uid: EventProducer.Kafka.EventFactory.Create*
+  name: Create
+  href: api/EventProducer.Kafka.EventFactory.html#EventProducer_Kafka_EventFactory_Create_
+  commentId: Overload:EventProducer.Kafka.EventFactory.Create
+  isSpec: "True"
+  fullName: EventProducer.Kafka.EventFactory.Create
+  nameWithType: EventFactory.Create
+- uid: EventProducer.Kafka.EventFactory.Create``1(System.String,``0)
+  name: Create<TEvent>(String, TEvent)
+  href: api/EventProducer.Kafka.EventFactory.html#EventProducer_Kafka_EventFactory_Create__1_System_String___0_
+  commentId: M:EventProducer.Kafka.EventFactory.Create``1(System.String,``0)
+  name.vb: Create(Of TEvent)(String, TEvent)
+  fullName: EventProducer.Kafka.EventFactory.Create<TEvent>(System.String, TEvent)
+  fullName.vb: EventProducer.Kafka.EventFactory.Create(Of TEvent)(System.String, TEvent)
+  nameWithType: EventFactory.Create<TEvent>(String, TEvent)
+  nameWithType.vb: EventFactory.Create(Of TEvent)(String, TEvent)
+- uid: EventProducer.Kafka.Extensions
+  name: EventProducer.Kafka.Extensions
+  href: api/EventProducer.Kafka.Extensions.html
+  commentId: N:EventProducer.Kafka.Extensions
+  fullName: EventProducer.Kafka.Extensions
+  nameWithType: EventProducer.Kafka.Extensions
+- uid: EventProducer.Kafka.Extensions.ServiceCollectionExtensions
+  name: ServiceCollectionExtensions
+  href: api/EventProducer.Kafka.Extensions.ServiceCollectionExtensions.html
+  commentId: T:EventProducer.Kafka.Extensions.ServiceCollectionExtensions
+  fullName: EventProducer.Kafka.Extensions.ServiceCollectionExtensions
+  nameWithType: ServiceCollectionExtensions
+- uid: EventProducer.Kafka.Extensions.ServiceCollectionExtensions.AddKafkaProducer(IServiceCollection,IConfiguration)
+  name: AddKafkaProducer(IServiceCollection, IConfiguration)
+  href: api/EventProducer.Kafka.Extensions.ServiceCollectionExtensions.html#EventProducer_Kafka_Extensions_ServiceCollectionExtensions_AddKafkaProducer_IServiceCollection_IConfiguration_
+  commentId: M:EventProducer.Kafka.Extensions.ServiceCollectionExtensions.AddKafkaProducer(IServiceCollection,IConfiguration)
+  fullName: EventProducer.Kafka.Extensions.ServiceCollectionExtensions.AddKafkaProducer(IServiceCollection, IConfiguration)
+  nameWithType: ServiceCollectionExtensions.AddKafkaProducer(IServiceCollection, IConfiguration)
+- uid: EventProducer.Kafka.Extensions.ServiceCollectionExtensions.AddKafkaProducer*
+  name: AddKafkaProducer
+  href: api/EventProducer.Kafka.Extensions.ServiceCollectionExtensions.html#EventProducer_Kafka_Extensions_ServiceCollectionExtensions_AddKafkaProducer_
+  commentId: Overload:EventProducer.Kafka.Extensions.ServiceCollectionExtensions.AddKafkaProducer
+  isSpec: "True"
+  fullName: EventProducer.Kafka.Extensions.ServiceCollectionExtensions.AddKafkaProducer
+  nameWithType: ServiceCollectionExtensions.AddKafkaProducer
+- uid: EventProducer.Kafka.Producer
+  name: Producer
+  href: api/EventProducer.Kafka.Producer.html
+  commentId: T:EventProducer.Kafka.Producer
+  fullName: EventProducer.Kafka.Producer
+  nameWithType: Producer
+- uid: EventProducer.Kafka.Producer.#ctor(ILogger{EventProducer.Kafka.Producer},IOptions{EventProducer.Kafka.Configuration.KafkaProducerConfiguration})
+  name: Producer(ILogger<Producer>, IOptions<KafkaProducerConfiguration>)
+  href: api/EventProducer.Kafka.Producer.html#EventProducer_Kafka_Producer__ctor_ILogger_EventProducer_Kafka_Producer__IOptions_EventProducer_Kafka_Configuration_KafkaProducerConfiguration__
+  commentId: M:EventProducer.Kafka.Producer.#ctor(ILogger{EventProducer.Kafka.Producer},IOptions{EventProducer.Kafka.Configuration.KafkaProducerConfiguration})
+  name.vb: Producer(ILogger(Of Producer), IOptions(Of KafkaProducerConfiguration))
+  fullName: EventProducer.Kafka.Producer.Producer(ILogger<EventProducer.Kafka.Producer>, IOptions<EventProducer.Kafka.Configuration.KafkaProducerConfiguration>)
+  fullName.vb: EventProducer.Kafka.Producer.Producer(ILogger(Of EventProducer.Kafka.Producer), IOptions(Of EventProducer.Kafka.Configuration.KafkaProducerConfiguration))
+  nameWithType: Producer.Producer(ILogger<Producer>, IOptions<KafkaProducerConfiguration>)
+  nameWithType.vb: Producer.Producer(ILogger(Of Producer), IOptions(Of KafkaProducerConfiguration))
+- uid: EventProducer.Kafka.Producer.#ctor*
+  name: Producer
+  href: api/EventProducer.Kafka.Producer.html#EventProducer_Kafka_Producer__ctor_
+  commentId: Overload:EventProducer.Kafka.Producer.#ctor
+  isSpec: "True"
+  fullName: EventProducer.Kafka.Producer.Producer
+  nameWithType: Producer.Producer
+- uid: EventProducer.Kafka.Producer.Dispose
+  name: Dispose()
+  href: api/EventProducer.Kafka.Producer.html#EventProducer_Kafka_Producer_Dispose
+  commentId: M:EventProducer.Kafka.Producer.Dispose
+  fullName: EventProducer.Kafka.Producer.Dispose()
+  nameWithType: Producer.Dispose()
+- uid: EventProducer.Kafka.Producer.Dispose*
+  name: Dispose
+  href: api/EventProducer.Kafka.Producer.html#EventProducer_Kafka_Producer_Dispose_
+  commentId: Overload:EventProducer.Kafka.Producer.Dispose
+  isSpec: "True"
+  fullName: EventProducer.Kafka.Producer.Dispose
+  nameWithType: Producer.Dispose
+- uid: EventProducer.Kafka.Producer.Produce(Event)
+  name: Produce(Event)
+  href: api/EventProducer.Kafka.Producer.html#EventProducer_Kafka_Producer_Produce_Event_
+  commentId: M:EventProducer.Kafka.Producer.Produce(Event)
+  fullName: EventProducer.Kafka.Producer.Produce(Event)
+  nameWithType: Producer.Produce(Event)
+- uid: EventProducer.Kafka.Producer.Produce*
+  name: Produce
+  href: api/EventProducer.Kafka.Producer.html#EventProducer_Kafka_Producer_Produce_
+  commentId: Overload:EventProducer.Kafka.Producer.Produce
+  isSpec: "True"
+  fullName: EventProducer.Kafka.Producer.Produce
+  nameWithType: Producer.Produce
+- uid: EventProducer.Kafka.Producer.ProduceAsync(Event,CancellationToken)
+  name: ProduceAsync(Event, CancellationToken)
+  href: api/EventProducer.Kafka.Producer.html#EventProducer_Kafka_Producer_ProduceAsync_Event_CancellationToken_
+  commentId: M:EventProducer.Kafka.Producer.ProduceAsync(Event,CancellationToken)
+  fullName: EventProducer.Kafka.Producer.ProduceAsync(Event, CancellationToken)
+  nameWithType: Producer.ProduceAsync(Event, CancellationToken)
+- uid: EventProducer.Kafka.Producer.ProduceAsync*
+  name: ProduceAsync
+  href: api/EventProducer.Kafka.Producer.html#EventProducer_Kafka_Producer_ProduceAsync_
+  commentId: Overload:EventProducer.Kafka.Producer.ProduceAsync
+  isSpec: "True"
+  fullName: EventProducer.Kafka.Producer.ProduceAsync
+  nameWithType: Producer.ProduceAsync
+- uid: EventProducer.Kafka.Producer.ProduceMany(IList{Event})
+  name: ProduceMany(IList<Event>)
+  href: api/EventProducer.Kafka.Producer.html#EventProducer_Kafka_Producer_ProduceMany_IList_Event__
+  commentId: M:EventProducer.Kafka.Producer.ProduceMany(IList{Event})
+  name.vb: ProduceMany(IList(Of Event))
+  fullName: EventProducer.Kafka.Producer.ProduceMany(IList<Event>)
+  fullName.vb: EventProducer.Kafka.Producer.ProduceMany(IList(Of Event))
+  nameWithType: Producer.ProduceMany(IList<Event>)
+  nameWithType.vb: Producer.ProduceMany(IList(Of Event))
+- uid: EventProducer.Kafka.Producer.ProduceMany*
+  name: ProduceMany
+  href: api/EventProducer.Kafka.Producer.html#EventProducer_Kafka_Producer_ProduceMany_
+  commentId: Overload:EventProducer.Kafka.Producer.ProduceMany
+  isSpec: "True"
+  fullName: EventProducer.Kafka.Producer.ProduceMany
+  nameWithType: Producer.ProduceMany
+- uid: EventProducer.Kafka.Producer.ProduceManyAsync(IList{Event},CancellationToken)
+  name: ProduceManyAsync(IList<Event>, CancellationToken)
+  href: api/EventProducer.Kafka.Producer.html#EventProducer_Kafka_Producer_ProduceManyAsync_IList_Event__CancellationToken_
+  commentId: M:EventProducer.Kafka.Producer.ProduceManyAsync(IList{Event},CancellationToken)
+  name.vb: ProduceManyAsync(IList(Of Event), CancellationToken)
+  fullName: EventProducer.Kafka.Producer.ProduceManyAsync(IList<Event>, CancellationToken)
+  fullName.vb: EventProducer.Kafka.Producer.ProduceManyAsync(IList(Of Event), CancellationToken)
+  nameWithType: Producer.ProduceManyAsync(IList<Event>, CancellationToken)
+  nameWithType.vb: Producer.ProduceManyAsync(IList(Of Event), CancellationToken)
+- uid: EventProducer.Kafka.Producer.ProduceManyAsync*
+  name: ProduceManyAsync
+  href: api/EventProducer.Kafka.Producer.html#EventProducer_Kafka_Producer_ProduceManyAsync_
+  commentId: Overload:EventProducer.Kafka.Producer.ProduceManyAsync
+  isSpec: "True"
+  fullName: EventProducer.Kafka.Producer.ProduceManyAsync
+  nameWithType: Producer.ProduceManyAsync
