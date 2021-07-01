@@ -15,7 +15,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Abstractions.EventProducer" Version="2.0.0-ci-9" />
+      <PackageReference Include="Abstractions.EventProducer" Version="2.0.0-ci-10" />
       <PackageReference Include="Confluent.Kafka" Version="1.7.0" />
       <PackageReference Include="Confluent.SchemaRegistry.Serdes.Avro" Version="1.7.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
