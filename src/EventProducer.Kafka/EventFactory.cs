@@ -48,8 +48,9 @@ namespace EventProducer.Kafka
                                  throw new InvalidOperationException(
                                      $"Inserted payload must be a subtype of {nameof(ISpecificRecord)}");
 
-            var serializer  = new AvroSerializer<TEvent>(schemaRegistry).AsSyncOverAsync();
-            var payloadData = serializer.Serialize(payload, SerializationContext.Empty);
+            var serializer           = new AvroSerializer<TEvent>(schemaRegistry).AsSyncOverAsync();
+            var serializationContext = new SerializationContext(MessageComponentType.Value, aggregateName);
+            var payloadData          = serializer.Serialize(payload, serializationContext);
             return new Event
             {
                 Name          = typeof(TEvent).Name,
